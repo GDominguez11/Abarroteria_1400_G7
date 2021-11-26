@@ -16,6 +16,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             InitializeComponent();
         }
         UsuariosView vistaUsuarios;
+        ClientesView vistaClientes;
 
         public string EmailUsuario;
 
@@ -42,6 +43,23 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
         private void Vista_FormClosed(object sender, FormClosedEventArgs e)
         {
             vistaUsuarios = null;
+            vistaClientes = null;
         }
+
+        private void ClientestoolStripButton_Click(object sender, EventArgs e)
+        {
+            if (vistaClientes == null)
+            {
+                vistaClientes = new ClientesView();
+                vistaClientes.MdiParent = this;
+                vistaClientes.FormClosed += Vista_FormClosed;
+                vistaClientes.Show();
+            }
+            else
+            {
+                vistaClientes.Activate();
+            }
+        }
+
     }
 }

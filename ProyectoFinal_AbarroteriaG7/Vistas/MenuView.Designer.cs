@@ -77,7 +77,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             this.ribbonControlAdv1.QuickPanelVisible = false;
             this.ribbonControlAdv1.RibbonHeaderImage = Syncfusion.Windows.Forms.Tools.RibbonHeaderImage.None;
             this.ribbonControlAdv1.RibbonStyle = Syncfusion.Windows.Forms.Tools.RibbonStyle.Office2016;
-            this.ribbonControlAdv1.SelectedTab = this.UsuariostoolStripTabItem;
+            this.ribbonControlAdv1.SelectedTab = this.toolStripTabItem2;
             this.ribbonControlAdv1.ShowRibbonDisplayOptionButton = true;
             this.ribbonControlAdv1.Size = new System.Drawing.Size(894, 127);
             this.ribbonControlAdv1.SystemText.QuickAccessDialogDropDownName = "Start menu";
@@ -175,6 +175,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             this.ClientestoolStripButton.Size = new System.Drawing.Size(52, 44);
             this.ClientestoolStripButton.Text = "Clientes";
             this.ClientestoolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ClientestoolStripButton.Click += new System.EventHandler(this.ClientestoolStripButton_Click);
             // 
             // toolStripTabItem1
             // 
@@ -207,7 +208,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             this.toolStripEx3.Office12Mode = false;
             this.toolStripEx3.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.toolStripEx3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStripEx3.Size = new System.Drawing.Size(302, 61);
+            this.toolStripEx3.Size = new System.Drawing.Size(39, 61);
             this.toolStripEx3.TabIndex = 0;
             // 
             // toolStripButton1
@@ -216,7 +217,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(63, 44);
+            this.toolStripButton1.Size = new System.Drawing.Size(63, 58);
             this.toolStripButton1.Text = "Productos";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
