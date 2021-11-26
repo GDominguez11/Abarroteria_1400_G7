@@ -63,6 +63,26 @@ namespace ProyectoFinal_AbarroteriaG7.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _26240019_1535731569829556_6472502337529994649_o {
+            get {
+                object obj = ResourceManager.GetObject("26240019_1535731569829556_6472502337529994649_o", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _26240019_1535731569829556_6472502337529994649_o1 {
+            get {
+                object obj = ResourceManager.GetObject("26240019_1535731569829556_6472502337529994649_o1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cliente {
             get {
                 object obj = ResourceManager.GetObject("cliente", resourceCulture);

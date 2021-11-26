@@ -15,10 +15,33 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
         {
             InitializeComponent();
         }
+        UsuariosView vistaUsuarios;
+
+        public string EmailUsuario;
 
         private void RibbonPanel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void UsuariostoolStripButton_Click(object sender, EventArgs e)
+        {
+            if (vistaUsuarios == null)
+            {
+                vistaUsuarios = new UsuariosView();
+                vistaUsuarios.MdiParent = this;
+                vistaUsuarios.FormClosed += Vista_FormClosed;
+                vistaUsuarios.Show();
+            }
+            else
+            {
+                vistaUsuarios.Activate();
+            }
+        }
+
+        private void Vista_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            vistaUsuarios = null;
         }
     }
 }
