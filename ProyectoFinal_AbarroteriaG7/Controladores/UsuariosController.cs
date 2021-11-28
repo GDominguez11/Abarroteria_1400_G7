@@ -115,8 +115,9 @@ namespace ProyectoFinal_AbarroteriaG7.Controladores
                     DesabilitarControles();
                     LimpiarControles();
 
-                    MessageBox.Show("Usuario Agregado Exitosamente", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Usuario Insertado Exitosamente", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ListarUsuarios();
+
                 }
                 else
                 {

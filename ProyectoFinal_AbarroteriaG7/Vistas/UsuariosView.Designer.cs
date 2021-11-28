@@ -56,7 +56,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Blue;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox1.Controls.Add(this.ClavetextBox);
             this.groupBox1.Controls.Add(this.EmailtextBox);
             this.groupBox1.Controls.Add(this.NombretextBox);
@@ -234,7 +234,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Blue;
+            this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(641, 494);
             this.Controls.Add(this.Cancelarbutton);
             this.Controls.Add(this.Eliminarbutton);

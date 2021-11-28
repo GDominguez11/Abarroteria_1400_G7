@@ -42,13 +42,16 @@ namespace ProyectoFinal_AbarroteriaG7.Modelos.DAO
                 comando.ExecuteNonQuery();
                 inserto = true;
                 MiConexion.Close();
+
             }
-            catch
+            catch (Exception ex)
             {
                 inserto = false;
             }
             return inserto;
         }
+
+        
 
         public DataTable GetClientes()
         {
@@ -74,7 +77,7 @@ namespace ProyectoFinal_AbarroteriaG7.Modelos.DAO
             return dt;
         }
 
-        public bool ActualizarCliente(Cliente cliente)
+        public bool ActualizarClientes(Cliente cliente)
         {
             bool modifico = false;
             try
@@ -160,12 +163,10 @@ namespace ProyectoFinal_AbarroteriaG7.Modelos.DAO
 
                 MiConexion.Close();
 
-
-
             }
             catch
             {
-
+                
             }
             return _imagen;
         }

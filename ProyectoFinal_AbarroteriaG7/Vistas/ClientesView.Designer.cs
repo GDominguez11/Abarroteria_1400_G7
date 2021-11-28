@@ -281,7 +281,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(844, 560);
             this.Controls.Add(this.ClientesdataGridView);
             this.Controls.Add(this.pictureBox1);
