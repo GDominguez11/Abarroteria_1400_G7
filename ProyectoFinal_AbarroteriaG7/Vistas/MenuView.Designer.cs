@@ -34,14 +34,14 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             this.ribbonControlAdv1 = new Syncfusion.Windows.Forms.Tools.RibbonControlAdv();
             this.UsuariostoolStripTabItem = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
             this.toolStripEx1 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
-            this.UsuariostoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripTabItem2 = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
             this.toolStripEx2 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
-            this.ClientestoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripTabItem1 = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
             this.toolStripEx3 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tabbedMDIManager1 = new Syncfusion.Windows.Forms.Tools.TabbedMDIManager(this.components);
+            this.UsuariostoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ClientestoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ProductostoolStripButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlAdv1)).BeginInit();
             this.ribbonControlAdv1.SuspendLayout();
             this.UsuariostoolStripTabItem.Panel.SuspendLayout();
@@ -77,7 +77,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             this.ribbonControlAdv1.QuickPanelVisible = false;
             this.ribbonControlAdv1.RibbonHeaderImage = Syncfusion.Windows.Forms.Tools.RibbonHeaderImage.None;
             this.ribbonControlAdv1.RibbonStyle = Syncfusion.Windows.Forms.Tools.RibbonStyle.Office2016;
-            this.ribbonControlAdv1.SelectedTab = this.toolStripTabItem2;
+            this.ribbonControlAdv1.SelectedTab = this.toolStripTabItem1;
             this.ribbonControlAdv1.ShowRibbonDisplayOptionButton = true;
             this.ribbonControlAdv1.Size = new System.Drawing.Size(894, 127);
             this.ribbonControlAdv1.SystemText.QuickAccessDialogDropDownName = "Start menu";
@@ -118,19 +118,8 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             this.toolStripEx1.Office12Mode = false;
             this.toolStripEx1.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.toolStripEx1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStripEx1.Size = new System.Drawing.Size(156, 61);
+            this.toolStripEx1.Size = new System.Drawing.Size(167, 61);
             this.toolStripEx1.TabIndex = 0;
-            // 
-            // UsuariostoolStripButton
-            // 
-            this.UsuariostoolStripButton.Image = global::ProyectoFinal_AbarroteriaG7.Properties.Resources.usuario__1_;
-            this.UsuariostoolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.UsuariostoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.UsuariostoolStripButton.Name = "UsuariostoolStripButton";
-            this.UsuariostoolStripButton.Size = new System.Drawing.Size(98, 44);
-            this.UsuariostoolStripButton.Text = "Lista de Usuarios";
-            this.UsuariostoolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.UsuariostoolStripButton.Click += new System.EventHandler(this.UsuariostoolStripButton_Click);
             // 
             // toolStripTabItem2
             // 
@@ -166,17 +155,6 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             this.toolStripEx2.Size = new System.Drawing.Size(264, 61);
             this.toolStripEx2.TabIndex = 0;
             // 
-            // ClientestoolStripButton
-            // 
-            this.ClientestoolStripButton.Image = global::ProyectoFinal_AbarroteriaG7.Properties.Resources.cliente;
-            this.ClientestoolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ClientestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ClientestoolStripButton.Name = "ClientestoolStripButton";
-            this.ClientestoolStripButton.Size = new System.Drawing.Size(52, 44);
-            this.ClientestoolStripButton.Text = "Clientes";
-            this.ClientestoolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.ClientestoolStripButton.Click += new System.EventHandler(this.ClientestoolStripButton_Click);
-            // 
             // toolStripTabItem1
             // 
             this.toolStripTabItem1.Name = "toolStripTabItem1";
@@ -202,24 +180,14 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             this.toolStripEx3.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripEx3.Image = null;
             this.toolStripEx3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.ProductostoolStripButton});
             this.toolStripEx3.Location = new System.Drawing.Point(0, 1);
             this.toolStripEx3.Name = "toolStripEx3";
             this.toolStripEx3.Office12Mode = false;
             this.toolStripEx3.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.toolStripEx3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStripEx3.Size = new System.Drawing.Size(39, 61);
+            this.toolStripEx3.Size = new System.Drawing.Size(310, 61);
             this.toolStripEx3.TabIndex = 0;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Image = global::ProyectoFinal_AbarroteriaG7.Properties.Resources.inventario;
-            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(63, 58);
-            this.toolStripButton1.Text = "Productos";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // tabbedMDIManager1
             // 
@@ -230,6 +198,39 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             this.tabbedMDIManager1.ImageSize = new System.Drawing.Size(16, 16);
             this.tabbedMDIManager1.NeedUpdateHostedForm = false;
             this.tabbedMDIManager1.ShowCloseButton = true;
+            // 
+            // UsuariostoolStripButton
+            // 
+            this.UsuariostoolStripButton.Image = global::ProyectoFinal_AbarroteriaG7.Properties.Resources.usuario__1_;
+            this.UsuariostoolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.UsuariostoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.UsuariostoolStripButton.Name = "UsuariostoolStripButton";
+            this.UsuariostoolStripButton.Size = new System.Drawing.Size(98, 44);
+            this.UsuariostoolStripButton.Text = "Lista de Usuarios";
+            this.UsuariostoolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.UsuariostoolStripButton.Click += new System.EventHandler(this.UsuariostoolStripButton_Click);
+            // 
+            // ClientestoolStripButton
+            // 
+            this.ClientestoolStripButton.Image = global::ProyectoFinal_AbarroteriaG7.Properties.Resources.cliente;
+            this.ClientestoolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ClientestoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ClientestoolStripButton.Name = "ClientestoolStripButton";
+            this.ClientestoolStripButton.Size = new System.Drawing.Size(52, 44);
+            this.ClientestoolStripButton.Text = "Clientes";
+            this.ClientestoolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ClientestoolStripButton.Click += new System.EventHandler(this.ClientestoolStripButton_Click);
+            // 
+            // ProductostoolStripButton
+            // 
+            this.ProductostoolStripButton.Image = global::ProyectoFinal_AbarroteriaG7.Properties.Resources.inventario;
+            this.ProductostoolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ProductostoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ProductostoolStripButton.Name = "ProductostoolStripButton";
+            this.ProductostoolStripButton.Size = new System.Drawing.Size(63, 44);
+            this.ProductostoolStripButton.Text = "Productos";
+            this.ProductostoolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ProductostoolStripButton.Click += new System.EventHandler(this.ProductostoolStripButton_Click_1);
             // 
             // MenuView
             // 
@@ -269,7 +270,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
         private System.Windows.Forms.ToolStripButton ClientestoolStripButton;
         private Syncfusion.Windows.Forms.Tools.ToolStripTabItem toolStripTabItem1;
         private Syncfusion.Windows.Forms.Tools.ToolStripEx toolStripEx3;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton ProductostoolStripButton;
         private Syncfusion.Windows.Forms.Tools.TabbedMDIManager tabbedMDIManager1;
     }
 }

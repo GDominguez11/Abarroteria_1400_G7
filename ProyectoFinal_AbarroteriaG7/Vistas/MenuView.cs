@@ -17,6 +17,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
         }
         UsuariosView vistaUsuarios;
         ClientesView vistaClientes;
+        ProductosView vistaProductos;
 
         public string EmailUsuario;
 
@@ -44,6 +45,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
         {
             vistaUsuarios = null;
             vistaClientes = null;
+            vistaProductos = null;
         }
 
         private void ClientestoolStripButton_Click(object sender, EventArgs e)
@@ -61,5 +63,19 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             }
         }
 
+        private void ProductostoolStripButton_Click_1(object sender, EventArgs e)
+        {
+            if (vistaProductos == null)
+            {
+                vistaProductos = new ProductosView();
+                vistaProductos.MdiParent = this;
+                vistaProductos.FormClosed += Vista_FormClosed;
+                vistaProductos.Show();
+            }
+            else
+            {
+                vistaProductos.Activate();
+            }
+        }
     }
 }
