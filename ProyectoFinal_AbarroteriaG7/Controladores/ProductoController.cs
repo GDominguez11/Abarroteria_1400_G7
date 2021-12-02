@@ -22,7 +22,68 @@ namespace ProyectoFinal_AbarroteriaG7.Controladores
             vista = view;
             vista.Nuevobutton.Click += new EventHandler(Nuevo);
             vista.Guardarbutton.Click += new EventHandler(Guardar);
+            vista.Load += new EventHandler(Load);
+            vista.Modificarbutton.Click += new EventHandler(Modificar);
+            vista.Eliminarbutton.Click += new EventHandler(Eliminar);
+            vista.Cancelarbutton.Click += new EventHandler(Cancelar);
+        }
 
+        private void Cancelar(object sender, EventArgs e)
+        {
+            DesabilitarControles();
+            LimpiarControles();
+            producto = null;
+        }
+
+        private void Eliminar(object sender, EventArgs e)
+        {
+            if (vista.ProductosdataGridView.SelectedRows.Count > 0)
+            {
+                bool elimino = productoDAO.EliminarProducto(Convert.ToInt32(vista.ProductosdataGridView.CurrentRow.Cells["ID"].Value));
+                if (elimino)
+                {
+
+                    MessageBox.Show("Producto Eliminado Exitosamente", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListarProductos();
+                }
+                else
+                {
+                    MessageBox.Show("No se Pudo Eliminar el Producto", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void Modificar(object sender, EventArgs e)
+        {
+            if (vista.ProductosdataGridView.SelectedRows.Count > 0)
+            {
+                operacion = "Modificar";
+                HabilitarControles();
+
+                vista.IdtextBox.Text = vista.ProductosdataGridView.CurrentRow.Cells["ID"].Value.ToString();
+                vista.CodigotextBox.Text = vista.ProductosdataGridView.CurrentRow.Cells["CODIGO"].Value.ToString();
+                vista.DetalletextBox.Text = vista.ProductosdataGridView.CurrentRow.Cells["DETALLE"].Value.ToString();
+                vista.StocktextBox.Text = vista.ProductosdataGridView.CurrentRow.Cells["STOCK"].Value.ToString();
+                vista.PreciotextBox.Text = vista.ProductosdataGridView.CurrentRow.Cells["PRECIO"].Value.ToString();
+                vista.Productolabel.Text = vista.ProductosdataGridView.CurrentRow.Cells["TIPOPRODUCTO"].Value.ToString();
+                vista.ProveedortextBox.Text = vista.ProductosdataGridView.CurrentRow.Cells["PROVEEDOR"].Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un Registro");
+            }
+
+
+        }
+
+        private void Load(object sender, EventArgs e)
+        {
+            ListarProductos();
+        }
+
+        private void ListarProductos()
+        {
+            vista.ProductosdataGridView.DataSource = productoDAO.GetProductos();
         }
 
         private void Guardar(object sender, EventArgs e)
@@ -72,9 +133,10 @@ namespace ProyectoFinal_AbarroteriaG7.Controladores
 
                     if (inserto)
                     {
-                        
+                        DesabilitarControles();
+                        LimpiarControles();
                         MessageBox.Show("Producto Insertado Exitosamente", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+                        ListarProductos();
 
                     }
                     else
@@ -82,6 +144,22 @@ namespace ProyectoFinal_AbarroteriaG7.Controladores
                         MessageBox.Show("No se pudo insertar el Producto", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
+                }
+                else if (operacion == "Modificar")
+                {
+                    producto.Id = Convert.ToInt32(vista.IdtextBox.Text);
+                    bool modifico = productoDAO.ActualizarProductos(producto);
+                    if (modifico)
+                    {
+                        DesabilitarControles();
+                        LimpiarControles();
+                        MessageBox.Show("Producto Modificado Exitosamente", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ListarProductos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se Pudo Modificar el Producto", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
 
 
@@ -116,5 +194,36 @@ namespace ProyectoFinal_AbarroteriaG7.Controladores
             vista.Modificarbutton.Enabled = false;
             vista.Nuevobutton.Enabled = false;
         }
+
+        private void DesabilitarControles()
+        {
+            vista.IdtextBox.Enabled = false;
+            vista.CodigotextBox.Enabled = false;
+            vista.DetalletextBox.Enabled = false;
+            vista.StocktextBox.Enabled = false;
+            vista.PreciotextBox.Enabled = false;
+            vista.ProductocomboBox.Enabled = false;
+            vista.ProveedortextBox.Enabled = false;
+
+            vista.Guardarbutton.Enabled = false;
+            vista.Cancelarbutton.Enabled = false;
+            vista.Modificarbutton.Enabled = true;
+            vista.Nuevobutton.Enabled = true;
+        }
+
+        private void LimpiarControles()
+        {
+            vista.IdtextBox.Clear();
+            vista.CodigotextBox.Clear();
+            vista.DetalletextBox.Clear();
+            vista.StocktextBox.Clear();
+            vista.PreciotextBox.Clear();
+            vista.ProductocomboBox.Text = "";
+            vista.Productolabel.Text = "";
+            vista.ProveedortextBox.Clear();
+
+
+        }
+
     }
 }

@@ -65,7 +65,68 @@ namespace ProyectoFinal_AbarroteriaG7.Modelos.DAO
             return dt;
         }
 
+        public bool ActualizarProductos(Producto producto)
+        {
+            bool modifico = false;
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append(" UPDATE PRODUCTO ");
+                sql.Append(" SET CODIGO = @Codigo, DETALLE = @Detalle, STOCK = @Stock, PRECIO = @Precio, TIPOPRODUCTO = @TipoProducto, PROVEEDOR = @Proveedor  ");
+                sql.Append(" WHERE ID = @Id; ");
 
+                comando.Connection = MiConexion;
+                MiConexion.Open();
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = sql.ToString();
+                comando.Parameters.Add("@Id", SqlDbType.Int).Value = producto.Id;
+                comando.Parameters.Add("@Codigo", SqlDbType.NVarChar, 50).Value = producto.Codigo;
+                comando.Parameters.Add("@Detalle", SqlDbType.NVarChar, 70).Value = producto.Detalle;
+                comando.Parameters.Add("@Stock", SqlDbType.Int).Value = producto.Stock;
+                comando.Parameters.Add("@Precio", SqlDbType.Decimal).Value = producto.Precio;
+                comando.Parameters.Add("@TipoProducto", SqlDbType.NVarChar, 50).Value = producto.TipoProducto;
+                comando.Parameters.Add("@Proveedor", SqlDbType.NVarChar, 50).Value = producto.Proveedor;
+                comando.ExecuteNonQuery();
+                modifico = true;
+                MiConexion.Close();
+
+
+
+            }
+            catch
+            {
+                return modifico;
+            }
+            return modifico;
+        }
+
+        public bool EliminarProducto(int id)
+        {
+            bool modifico = false;
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append(" DELETE FROM PRODUCTO ");
+                sql.Append(" WHERE ID = @Id; ");
+
+                comando.Connection = MiConexion;
+                MiConexion.Open();
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = sql.ToString();
+                comando.Parameters.Add("@Id", SqlDbType.Int).Value = id;
+                comando.ExecuteNonQuery();
+                modifico = true;
+                MiConexion.Close();
+
+
+
+            }
+            catch
+            {
+                return modifico;
+            }
+            return modifico;
+        }
 
     }
 }
