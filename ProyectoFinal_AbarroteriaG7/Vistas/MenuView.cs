@@ -18,6 +18,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
         UsuariosView vistaUsuarios;
         ClientesView vistaClientes;
         ProductosView vistaProductos;
+        FacturaView vistaFacturas;
 
         public string EmailUsuario;
 
@@ -46,6 +47,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             vistaUsuarios = null;
             vistaClientes = null;
             vistaProductos = null;
+            vistaFacturas = null;
         }
 
         private void ClientestoolStripButton_Click(object sender, EventArgs e)
@@ -75,6 +77,21 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             else
             {
                 vistaProductos.Activate();
+            }
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if (vistaFacturas == null)
+            {
+                vistaFacturas = new FacturaView();
+                vistaFacturas.MdiParent = this;
+                vistaFacturas.FormClosed += Vista_FormClosed;
+                vistaFacturas.Show();
+            }
+            else
+            {
+                vistaFacturas.Activate();
             }
         }
     }

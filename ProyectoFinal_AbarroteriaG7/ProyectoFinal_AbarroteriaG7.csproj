@@ -51,14 +51,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\ClienteController.cs" />
+    <Compile Include="Controladores\FacturaController.cs" />
     <Compile Include="Controladores\LoginController.cs" />
     <Compile Include="Controladores\ProductoController.cs" />
     <Compile Include="Controladores\UsuariosController.cs" />
     <Compile Include="Modelos\DAO\ClienteDAO.cs" />
     <Compile Include="Modelos\DAO\Conexion.cs" />
+    <Compile Include="Modelos\DAO\DetalleDAO.cs" />
+    <Compile Include="Modelos\DAO\FacturaDAO.cs" />
     <Compile Include="Modelos\DAO\ProductoDAO.cs" />
     <Compile Include="Modelos\DAO\UsuarioDAO.cs" />
     <Compile Include="Modelos\Entidades\Cliente.cs" />
+    <Compile Include="Modelos\Entidades\DetalleFactura.cs" />
+    <Compile Include="Modelos\Entidades\Factura.cs" />
     <Compile Include="Modelos\Entidades\Producto.cs" />
     <Compile Include="Modelos\Entidades\Usuario.cs" />
     <Compile Include="Program.cs" />
@@ -68,6 +73,12 @@
     </Compile>
     <Compile Include="Vistas\ClientesView.Designer.cs">
       <DependentUpon>ClientesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\FacturaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\FacturaView.Designer.cs">
+      <DependentUpon>FacturaView.cs</DependentUpon>
     </Compile>
     <Compile Include="Vistas\LoginView.cs">
       <SubType>Form</SubType>
@@ -105,6 +116,9 @@
     </Compile>
     <EmbeddedResource Include="Vistas\ClientesView.resx">
       <DependentUpon>ClientesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\FacturaView.resx">
+      <DependentUpon>FacturaView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vistas\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
@@ -146,6 +160,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\26240019_1535731569829556_6472502337529994649_o1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\factura.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
