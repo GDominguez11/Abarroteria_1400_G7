@@ -163,13 +163,13 @@ namespace ProyectoFinal_AbarroteriaG7.Modelos.DAO
             return modifico;
         }
 
-        public string GetNombreUsuarios(string email)
+        public Usuario GetUsuarioPorEmail(string email)
         {
-            string nombre = string.Empty;
+            Usuario user = new Usuario();
             try
             {
                 StringBuilder sql = new StringBuilder();
-                sql.Append(" SELECT NOMBRE FROM USUARIO ");
+                sql.Append(" SELECT * FROM USUARIO ");
                 sql.Append(" WHERE EMAIL = @Email; ");
 
                 comando.Connection = MiConexion;
@@ -181,7 +181,9 @@ namespace ProyectoFinal_AbarroteriaG7.Modelos.DAO
 
                 if (dr.Read())
                 {
-                    nombre = (string)dr["NOMBRE"];
+                    user.Id = (int)dr["ID"];
+                    user.Nombre = (string)dr["NOMBRE"];
+                    user.Email = (string)dr["EMAIL"];
                 }
 
                 MiConexion.Close();
@@ -189,7 +191,7 @@ namespace ProyectoFinal_AbarroteriaG7.Modelos.DAO
             catch (Exception)
             {
             }
-            return nombre;
+            return user;
         }
     }
 }

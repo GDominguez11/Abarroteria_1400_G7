@@ -22,6 +22,8 @@ namespace ProyectoFinal_AbarroteriaG7.Modelos.Entidades
 
         public decimal Total { get; set; }
 
+        public int IdUsuario { get; set; }
+
 
 
     }

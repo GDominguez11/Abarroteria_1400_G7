@@ -343,7 +343,6 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             // 
             // Cancelarbutton
             // 
-            this.Cancelarbutton.Enabled = false;
             this.Cancelarbutton.Location = new System.Drawing.Point(484, 393);
             this.Cancelarbutton.Name = "Cancelarbutton";
             this.Cancelarbutton.Size = new System.Drawing.Size(75, 23);
@@ -353,7 +352,6 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             // 
             // Guardarbutton
             // 
-            this.Guardarbutton.Enabled = false;
             this.Guardarbutton.Location = new System.Drawing.Point(353, 393);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(75, 23);
