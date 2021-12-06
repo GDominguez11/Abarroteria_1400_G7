@@ -21,6 +21,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
         FacturaView vistaFacturas;
 
         public string EmailUsuario;
+       
 
         private void RibbonPanel_Click(object sender, EventArgs e)
         {

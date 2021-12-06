@@ -171,5 +171,62 @@ namespace ProyectoFinal_AbarroteriaG7.Modelos.DAO
             return _imagen;
         }
 
+        public Cliente GetClientePorIdentidad(string identidad)
+        {
+            Cliente cliente = new Cliente();
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append(" SELECT * FROM CLIENTE ");
+                sql.Append(" WHERE IDENTIDAD = @Identidad; ");
+
+                comando.Connection = MiConexion;
+                MiConexion.Open();
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = sql.ToString();
+                comando.Parameters.Add("@Identidad", SqlDbType.NVarChar, 20).Value = identidad;
+                SqlDataReader dr = comando.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    cliente.Id = (int)dr["ID"];
+                    cliente.Identidad = (string)dr["IDENTIDAD"];
+                    cliente.Nombre = (string)dr["NOMBRE"];
+                    cliente.Email = (string)dr["EMAIL"];
+                    cliente.Direccion = (string)dr["DIRECCION"];
+                }
+
+                MiConexion.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MiConexion.Close();
+            }
+            return cliente;
+        }
+
+        public DataTable GetClientesPorNombre(string nombre)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append(" SELECT * FROM CLIENTE WHERE NOMBRE LIKE ('%" + nombre + "%') ");
+
+                comando.Connection = MiConexion;
+                MiConexion.Open();
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = sql.ToString();
+                SqlDataReader dr = comando.ExecuteReader();
+                dt.Load(dr);
+                MiConexion.Close();
+            }
+            catch (Exception)
+            {
+                MiConexion.Close();
+            }
+            return dt;
+        }
     }
 }

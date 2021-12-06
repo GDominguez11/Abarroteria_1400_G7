@@ -16,7 +16,14 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
         public FacturaView()
         {
             InitializeComponent();
+            string usuario = EmailUsuario;
             FacturaController controlador = new FacturaController(this);
+        }
+        public string EmailUsuario;
+
+        private void FacturaView_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

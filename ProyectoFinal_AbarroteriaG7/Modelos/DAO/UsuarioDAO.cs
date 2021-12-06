@@ -163,5 +163,33 @@ namespace ProyectoFinal_AbarroteriaG7.Modelos.DAO
             return modifico;
         }
 
+        public string GetNombreUsuarios(string email)
+        {
+            string nombre = string.Empty;
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append(" SELECT NOMBRE FROM USUARIO ");
+                sql.Append(" WHERE EMAIL = @Email; ");
+
+                comando.Connection = MiConexion;
+                MiConexion.Open();
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = sql.ToString();
+                comando.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = email;
+                SqlDataReader dr = comando.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    nombre = (string)dr["NOMBRE"];
+                }
+
+                MiConexion.Close();
+            }
+            catch (Exception)
+            {
+            }
+            return nombre;
+        }
     }
 }

@@ -128,5 +128,64 @@ namespace ProyectoFinal_AbarroteriaG7.Modelos.DAO
             return modifico;
         }
 
+        public DataTable GetProductosPorCodigo(string codigo)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append(" SELECT * FROM PRODUCTO WHERE NOMBRE LIKE ('%" + codigo + "%') ");
+
+                comando.Connection = MiConexion;
+                MiConexion.Open();
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = sql.ToString();
+                SqlDataReader dr = comando.ExecuteReader();
+                dt.Load(dr);
+                MiConexion.Close();
+            }
+            catch (Exception)
+            {
+                MiConexion.Close();
+            }
+            return dt;
+        }
+
+        public Producto GetProductoPorCodigo(string codigo)
+        {
+            Producto producto = new Producto();
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append(" SELECT * FROM PRODUCTO ");
+                sql.Append(" WHERE CODIGO = @Codigo; ");
+
+                comando.Connection = MiConexion;
+                MiConexion.Open();
+                comando.CommandType = System.Data.CommandType.Text;
+                comando.CommandText = sql.ToString();
+                comando.Parameters.Add("@Codigo", SqlDbType.NVarChar, 50).Value = codigo;
+                SqlDataReader dr = comando.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    producto.Id = (int)dr["ID"];
+                    producto.Codigo = (string)dr["CODIGO"];
+                    producto.Detalle = (string)dr["DETALLE"];
+                    producto.Stock = (int)dr["STOCK"];
+                    producto.Precio = (decimal)dr["PRECIO"];
+                }
+
+                MiConexion.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MiConexion.Close();
+            }
+            return producto;
+        }
+
+
     }
 }

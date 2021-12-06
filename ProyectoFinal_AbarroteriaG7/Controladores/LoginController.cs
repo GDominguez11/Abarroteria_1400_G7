@@ -20,6 +20,7 @@ namespace ProyectoFinal_AbarroteriaG7.Controladores
             vista = view;
 
             vista.Aceptarbutton.Click += new EventHandler(ValidarUsuario);
+            
         }
 
         private void ValidarUsuario(object serder, EventArgs e)
@@ -41,8 +42,9 @@ namespace ProyectoFinal_AbarroteriaG7.Controladores
                 MenuView menu = new MenuView();
 
                 vista.Hide();
-
-                //menu.EmailUsuario = user.Email;
+                System.Security.Principal.GenericIdentity identidad = new System.Security.Principal.GenericIdentity(vista.EmailtextBox.Text);
+                System.Security.Principal.GenericPrincipal principal = new System.Security.Principal.GenericPrincipal(identidad, null);
+                System.Threading.Thread.CurrentPrincipal = principal;
 
                 menu.Show();
             }
