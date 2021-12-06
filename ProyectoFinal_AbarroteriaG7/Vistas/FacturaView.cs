@@ -25,5 +25,15 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
         {
 
         }
+
+        private void Cancelarbutton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Nuevobutton_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

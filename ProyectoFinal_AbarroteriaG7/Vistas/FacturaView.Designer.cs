@@ -347,8 +347,9 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             this.Cancelarbutton.Name = "Cancelarbutton";
             this.Cancelarbutton.Size = new System.Drawing.Size(75, 23);
             this.Cancelarbutton.TabIndex = 40;
-            this.Cancelarbutton.Text = "Cancelar";
+            this.Cancelarbutton.Text = "Salir";
             this.Cancelarbutton.UseVisualStyleBackColor = true;
+            this.Cancelarbutton.Click += new System.EventHandler(this.Cancelarbutton_Click);
             // 
             // Guardarbutton
             // 
@@ -367,6 +368,7 @@ namespace ProyectoFinal_AbarroteriaG7.Vistas
             this.Nuevobutton.TabIndex = 36;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
             // pictureBox1
             // 

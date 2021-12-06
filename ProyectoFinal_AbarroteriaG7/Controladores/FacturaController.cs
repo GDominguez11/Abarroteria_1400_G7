@@ -21,8 +21,10 @@ namespace ProyectoFinal_AbarroteriaG7.Controladores
         ProductoDAO productoDAO = new ProductoDAO();
         Producto producto = new Producto();
         public string _EmailUsuario;
+        Usuario user = new Usuario();
 
-        List<DetalleFactura> detalleFacturas = new List<DetalleFactura>();
+        List<DetalleFactura> ListadetalleFacturas = new List<DetalleFactura>();
+
         decimal subtotal = 0;
         decimal isv = 0;
         decimal totalPagar = 0;
@@ -35,11 +37,36 @@ namespace ProyectoFinal_AbarroteriaG7.Controladores
             vista.BuscarClientebutton.Click += new EventHandler(BuscarCliente);
             vista.CodigotextBox.KeyPress += CodigotextBox_KeyPress;
             vista.CantidadtextBox.KeyPress += CantidadtextBox_KeyPress;
+            vista.Guardarbutton.Click += Guardarbutton_Click;
+        }
+
+        private void Guardarbutton_Click(object sender, EventArgs e)
+        {
+            Factura factura = new Factura();
+            factura.Fecha = vista.FechadateTimePicker.Value;
+            factura.IdCliente = cliente.Id;
+            factura.IdUsuario = user.Id;
+            factura.SubTotal = subtotal;
+            factura.ISV = isv;
+            factura.Total = Convert.ToDecimal(vista.TotaltextBox.Text);
+            factura.Descuento = Convert.ToDecimal(vista.DescuentotextBox.Text);
+
+          bool inserto =  facturaDAO.InsertarNuevaFactura(factura, ListadetalleFacturas);
+
+            if (inserto)
+            {
+                MessageBox.Show("Factura registrada correctamente");
+            }
+            else
+            {
+                MessageBox.Show("Error al registrar la factura");
+            }
+
         }
 
         private void CantidadtextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter && string.IsNullOrEmpty(vista.CantidadtextBox.Text))
+            if (e.KeyChar == (char)Keys.Enter && !string.IsNullOrEmpty(vista.CantidadtextBox.Text))
             {
                 DetalleFactura detalleFactura = new DetalleFactura();
                 detalleFactura.IdProducto = producto.Id;
@@ -50,6 +77,10 @@ namespace ProyectoFinal_AbarroteriaG7.Controladores
                 subtotal += detalleFactura.Total;
                 isv = subtotal * 0.15M; //la M es para que no lo detecte el 0.15 como double sino como decimal
                 totalPagar = subtotal + isv;
+
+                ListadetalleFacturas.Add(detalleFactura);
+                vista.FacturadataGridView.DataSource = null;
+                vista.FacturadataGridView.DataSource = ListadetalleFacturas;
 
                 vista.SubtotaltextBox.Text = subtotal.ToString("N2");
                 vista.ImpuestotextBox.Text = isv.ToString("N2");
@@ -99,7 +130,8 @@ namespace ProyectoFinal_AbarroteriaG7.Controladores
 
         private void Load(object sender, EventArgs e)
         {
-            vista.UsuariotextBox.Text = usuarioDAO.GetNombreUsuarios(System.Threading.Thread.CurrentPrincipal.Identity.Name);
+            user = usuarioDAO.GetUsuarioPorEmail(System.Threading.Thread.CurrentPrincipal.Identity.Name);
+            vista.UsuariotextBox.Text = user.Nombre;
         }
     }
 }
